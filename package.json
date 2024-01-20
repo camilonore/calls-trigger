@@ -7,7 +7,10 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0"
+    "@azure/functions": "^4.0.0",
+    "playwright": "^1.6.2",
+    "playwright-chromium": "^1.6.2",
+    "resend": "3.0.0"
   },
   "devDependencies": {},
   "main": "src/functions/*.js"
