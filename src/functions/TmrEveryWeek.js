@@ -1,7 +1,6 @@
 const { app } = require('@azure/functions')
 const { chromium } = require('playwright-chromium')
 const { Resend } = require('resend')
-import { spawnSync } from "child_process";
 
 const resend = new Resend('re_KHpXAM8J_KDfSdBf5BGKbdh1pjVkK2Mg2')
 const URL =
@@ -11,7 +10,6 @@ app.timer('timerTrigger1', {
   schedule: '0 */5 * * * *',
   handler: async (myTimer, context) => {
     context.log('Timer function processed request [TmrEveryWeek].')
-    spawnSync("npx", ["playwright", "install", "chromium"]);
     const browser = await chromium.launch()
     const page = await browser.newPage()
 
@@ -28,10 +26,10 @@ app.timer('timerTrigger1', {
     })
 
     if (error) {
-      context.error({ error })
-      return console.error({ error })
+      context.error({ ok: false, error })
+      return console.error({ ok: false, error })
     }
-    context.log({ data })
-    return console.log({ data })
+    context.log({ ok: true, data })
+    return console.log({ ok: true, data })
   }
 })
