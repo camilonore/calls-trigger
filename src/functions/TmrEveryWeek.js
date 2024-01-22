@@ -7,7 +7,7 @@ const URL =
   'https://www.uptc.edu.co/sitio/portal/sitios/universidad/rectoria/relinter/convoc/conv_sal/index.html'
 
 app.timer('timerTrigger1', {
-  schedule: '0 0 10 * * 1',
+  schedule: '0 0 15 * * 1',
   handler: async (myTimer, context) => {
     context.log('Timer function processed request [TmrEveryWeek].')
     const browser = await chromium.launch()
